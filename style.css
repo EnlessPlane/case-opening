@@ -1,0 +1,340 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: radial-gradient(circle at top left, #152d52 0%, #090b10 45%, #050609 100%);
+  color: #e9eff7;
+  font-family: Inter, system-ui, sans-serif;
+}
+
+#app {
+  max-width: 1150px;
+  margin: 0 auto;
+  padding: 24px 18px 40px;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.topbar h1 {
+  margin: 0;
+  font-size: clamp(1.8rem, 2vw, 2.6rem);
+}
+
+.topbar p {
+  margin: 0;
+  color: #bec8db;
+  max-width: 620px;
+}
+
+.panel {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 22px;
+  padding: 22px;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.16);
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(240px, 280px) 1fr;
+  gap: 20px;
+}
+
+.case-list {
+  display: grid;
+  gap: 12px;
+}
+
+.case-button {
+  width: 100%;
+  text-align: left;
+  padding: 14px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.03);
+  color: #eef4ff;
+  font-size: 0.98rem;
+  cursor: pointer;
+  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.case-button:hover {
+  transform: translateX(6px);
+}
+
+.case-button.selected {
+  border-color: #8bc4ff;
+  background: rgba(139, 196, 255, 0.12);
+  animation: casePulse 2.4s ease infinite;
+}
+
+@keyframes casePulse {
+  0%, 100% {
+    transform: translateX(0);
+    box-shadow: 0 0 0 rgba(139, 196, 255, 0);
+  }
+  50% {
+    transform: translateX(2px);
+    box-shadow: 0 0 18px rgba(139, 196, 255, 0.22);
+  }
+}
+
+.case-preview {
+  display: grid;
+  grid-template-columns: minmax(220px, 280px) 1fr;
+  gap: 24px;
+  align-items: center;
+}
+
+.case-box.active {
+  transform: rotateX(18deg) rotateY(-18deg) scale(1.05);
+  box-shadow: 0 28px 110px rgba(33, 116, 255, 0.35);
+}
+
+.case-box.animate {
+  animation: caseSelect 0.8s ease forwards;
+}
+
+@keyframes caseSelect {
+  0% {
+    transform: rotateX(16deg) rotateY(-24deg) scale(1);
+  }
+  40% {
+    transform: rotateX(60deg) rotateY(20deg) scale(1.12);
+  }
+  70% {
+    transform: rotateX(-10deg) rotateY(110deg) scale(1.08);
+  }
+  100% {
+    transform: rotateX(16deg) rotateY(-24deg) scale(1.05);
+  }
+}
+
+.case-item-list.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.case-item-list {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.item-row {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 12px;
+  align-items: center;
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeInUp 0.4s ease forwards;
+  animation-delay: calc(var(--item-index) * 0.05s);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.case-model {
+  perspective: 900px;
+}
+
+.case-box {
+  width: 280px;
+  height: 140px;
+  position: relative;
+  transform-style: preserve-3d;
+  transform: rotateX(16deg) rotateY(-24deg);
+  transition: transform 0.45s ease;
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 22px 90px rgba(6, 22, 36, 0.5);
+  border: 1px solid rgba(255,255,255,.08);
+}
+
+.case-box .case-face {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.94);
+  font-size: 1.25rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 20px;
+  text-align: center;
+}
+
+.case-face.front {
+  background: linear-gradient(135deg, rgba(255,255,255,.12), rgba(0,0,0,.18));
+}
+
+.case-face.glow {
+  background: radial-gradient(circle at 70% 20%, rgba(255,255,255,0.28), transparent 35%),
+    radial-gradient(circle at 30% 80%, rgba(58, 215, 255, 0.22), transparent 24%),
+    linear-gradient(135deg, rgba(10, 45, 77, 1), rgba(18, 37, 60, 1));
+}
+
+.case-name {
+  font-size: 1.55rem;
+  margin: 0 0 10px;
+}
+
+.case-desc {
+  color: #c5d2e6;
+  line-height: 1.65;
+  margin: 0 0 16px;
+}
+
+.case-meta {
+  display: grid;
+  gap: 8px;
+  color: #abb8d5;
+  font-size: 0.98rem;
+}
+
+.primary-button {
+  width: 100%;
+  margin-top: 14px;
+  padding: 16px 20px;
+  border: none;
+  border-radius: 16px;
+  color: #fff;
+  background: linear-gradient(120deg, #3f8aff, #4670ff);
+  cursor: pointer;
+  font-size: 1.05rem;
+  letter-spacing: 0.02em;
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+.primary-button:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 18px 40px rgba(29, 100, 255, 0.28);
+}
+
+.primary-button:disabled {
+  opacity: 0.55;
+  cursor: default;
+}
+
+.result-panel {
+  margin-top: 10px;
+}
+
+.result-container {
+  min-height: 160px;
+  display: grid;
+  place-items: center;
+  padding: 18px;
+  border-radius: 16px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.result-card {
+  width: 100%;
+  max-width: 560px;
+  padding: 22px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 20px;
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.22);
+}
+
+.item-list {
+  display: grid;
+  gap: 10px;
+  margin-top: 16px;
+  max-height: 260px;
+  overflow: auto;
+  padding-right: 4px;
+}
+
+.item-row {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 12px;
+  align-items: center;
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.item-name {
+  font-size: 0.98rem;
+  color: #f3f7ff;
+}
+
+.item-name.milspec { color: #76b852; }
+.item-name.restricted { color: #4a7cbe; }
+.item-name.classified { color: #5639a9; }
+.item-name.covert { color: #b9523d; }
+.item-name.rare-special { color: #d4af37; }
+
+.item-rarity {
+  font-size: 0.92rem;
+  opacity: 0.84;
+}
+
+.case-description-list {
+  margin-top: 18px;
+}
+
+@keyframes caseOpen {
+  0% {
+    transform: rotateX(16deg) rotateY(-24deg) scale(1);
+  }
+  35% {
+    transform: rotateX(70deg) rotateY(30deg) scale(1.08);
+  }
+  60% {
+    transform: rotateX(-10deg) rotateY(120deg) scale(1.06);
+  }
+  100% {
+    transform: rotateX(16deg) rotateY(-24deg) scale(1);
+  }
+}
+
+.opening {
+  animation: caseOpen 1.2s ease forwards;
+}
+
+@media (max-width: 882px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .case-preview {
+    grid-template-columns: 1fr;
+  }
+
+  .case-model {
+    margin: 0 auto;
+  }
+}
