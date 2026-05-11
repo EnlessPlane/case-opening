@@ -168,7 +168,7 @@ function renderSelectedCase() {
   if (list) {
     list.innerHTML = `
       <h3>Obsah case</h3>
-      <div class="item-list">
+      <div class="case-item-list">
         ${selected.items
           .map(
             (item, idx) => `
