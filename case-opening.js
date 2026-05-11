@@ -222,10 +222,10 @@ function animateCaseOpen() {
       return;
     }
 
-    box.classList.add("opening");
+    box.classList.add("animate");
     const onEnd = () => {
       box.removeEventListener("animationend", onEnd);
-      box.classList.remove("opening");
+      box.classList.remove("animate");
       resolve();
     };
     box.addEventListener("animationend", onEnd);
