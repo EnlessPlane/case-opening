@@ -5,14 +5,14 @@ const cases = [
     description: "Moderní case s futuristickými skiny, jasnými neonovými prvky a ostrými hranami.",
     themeColor: "#3e8cff",
     items: [
-      { name: "M4A4 | The Emperor", rarity: "Covert", weight: 0.6, skinClass: "covert" },
-      { name: "AK-47 | The Empress", rarity: "Covert", weight: 0.6, skinClass: "covert" },
-      { name: "AWP | Wildfire", rarity: "Classified", weight: 3.4, skinClass: "classified" },
-      { name: "Desert Eagle | Mecha Industries", rarity: "Classified", weight: 3.4, skinClass: "classified" },
-      { name: "MAC-10 | Neon Rider", rarity: "Restricted", weight: 15, skinClass: "restricted" },
-      { name: "Glock-18 | Moonrise", rarity: "Restricted", weight: 15, skinClass: "restricted" },
-      { name: "MP9 | Goo", rarity: "Mil-Spec", weight: 40, skinClass: "milspec" },
-      { name: "P250 | Contamination", rarity: "Mil-Spec", weight: 40, skinClass: "milspec" }
+      { name: "M4A4 | The Emperor", rarity: "Covert", weight: 0.6, skinClass: "covert", icon: "🔫" },
+      { name: "AK-47 | The Empress", rarity: "Covert", weight: 0.6, skinClass: "covert", icon: "🔫" },
+      { name: "AWP | Wildfire", rarity: "Classified", weight: 3.4, skinClass: "classified", icon: "🎯" },
+      { name: "Desert Eagle | Mecha Industries", rarity: "Classified", weight: 3.4, skinClass: "classified", icon: "💥" },
+      { name: "MAC-10 | Neon Rider", rarity: "Restricted", weight: 15, skinClass: "restricted", icon: "⚡" },
+      { name: "Glock-18 | Moonrise", rarity: "Restricted", weight: 15, skinClass: "restricted", icon: "🌙" },
+      { name: "MP9 | Goo", rarity: "Mil-Spec", weight: 40, skinClass: "milspec", icon: "🧪" },
+      { name: "P250 | Contamination", rarity: "Mil-Spec", weight: 40, skinClass: "milspec", icon: "☣️" }
     ]
   },
   {
@@ -21,13 +21,13 @@ const cases = [
     description: "Klasická sbírka specialit s pestrými designy a mnoha vizuálně odlišnými skiny.",
     themeColor: "#c15cff",
     items: [
-      { name: "USP-S | Printstream", rarity: "Covert", weight: 0.5, skinClass: "covert" },
-      { name: "AK-47 | Aquamarine Revenge", rarity: "Covert", weight: 0.5, skinClass: "covert" },
-      { name: "AWP | Asiimov", rarity: "Classified", weight: 3.8, skinClass: "classified" },
-      { name: "Nova | Wood Fired", rarity: "Classified", weight: 3.8, skinClass: "classified" },
-      { name: "P2000 | Imperial Dragon", rarity: "Restricted", weight: 15, skinClass: "restricted" },
-      { name: "MAC-10 | Neon Rider", rarity: "Restricted", weight: 15, skinClass: "restricted" },
-      { name: "P90 | Shapewood", rarity: "Mil-Spec", weight: 40, skinClass: "milspec" }
+      { name: "USP-S | Printstream", rarity: "Covert", weight: 0.5, skinClass: "covert", icon: "🔵" },
+      { name: "AK-47 | Aquamarine Revenge", rarity: "Covert", weight: 0.5, skinClass: "covert", icon: "🌊" },
+      { name: "AWP | Asiimov", rarity: "Classified", weight: 3.8, skinClass: "classified", icon: "🚀" },
+      { name: "Nova | Wood Fired", rarity: "Classified", weight: 3.8, skinClass: "classified", icon: "🔥" },
+      { name: "P2000 | Imperial Dragon", rarity: "Restricted", weight: 15, skinClass: "restricted", icon: "🐉" },
+      { name: "MAC-10 | Neon Rider", rarity: "Restricted", weight: 15, skinClass: "restricted", icon: "⚡" },
+      { name: "P90 | Shapewood", rarity: "Mil-Spec", weight: 40, skinClass: "milspec", icon: "🌲" }
     ]
   },
   {
@@ -36,13 +36,13 @@ const cases = [
     description: "Tradiční case s vyváženými šancemi a několika legendárními skiny.",
     themeColor: "#d1763f",
     items: [
-      { name: "M4A1-S | Cyrex", rarity: "Covert", weight: 0.6, skinClass: "covert" },
-      { name: "AWP | Asiimov", rarity: "Covert", weight: 0.6, skinClass: "covert" },
-      { name: "Desert Eagle | Blaze", rarity: "Classified", weight: 3.5, skinClass: "classified" },
-      { name: "Glock-18 | Weasel", rarity: "Classified", weight: 3.5, skinClass: "classified" },
-      { name: "USP-S | Kill Confirmed", rarity: "Restricted", weight: 15, skinClass: "restricted" },
-      { name: "P250 | See Ya Later", rarity: "Restricted", weight: 15, skinClass: "restricted" },
-      { name: "MP9 | Rose Iron", rarity: "Mil-Spec", weight: 40, skinClass: "milspec" }
+      { name: "M4A1-S | Cyrex", rarity: "Covert", weight: 0.6, skinClass: "covert", icon: "⚙️" },
+      { name: "AWP | Asiimov", rarity: "Covert", weight: 0.6, skinClass: "covert", icon: "🚀" },
+      { name: "Desert Eagle | Blaze", rarity: "Classified", weight: 3.5, skinClass: "classified", icon: "🔥" },
+      { name: "Glock-18 | Weasel", rarity: "Classified", weight: 3.5, skinClass: "classified", icon: "🪳" },
+      { name: "USP-S | Kill Confirmed", rarity: "Restricted", weight: 15, skinClass: "restricted", icon: "🧨" },
+      { name: "P250 | See Ya Later", rarity: "Restricted", weight: 15, skinClass: "restricted", icon: "👋" },
+      { name: "MP9 | Rose Iron", rarity: "Mil-Spec", weight: 40, skinClass: "milspec", icon: "🌹" }
     ]
   }
 ];
@@ -105,6 +105,7 @@ function formatResult(item) {
   return `
     <div class="result-card" style="border-color: ${color};">
       <div style="display: grid; gap: 14px;">
+        <div class="result-icon" style="color: ${color};">${item.icon}</div>
         <div style="font-size: 1.1rem; font-weight: 700; color: ${color};">${item.rarity}</div>
         <div style="font-size: 1.6rem; font-weight: 700;">${item.name}</div>
         <div style="display: grid; gap: 8px; color: #d0d9f3;">
@@ -172,6 +173,7 @@ function renderSelectedCase() {
           .map(
             (item, idx) => `
             <div class="item-row" style="--item-index: ${idx};">
+              <span class="item-icon">${item.icon}</span>
               <div class="item-name ${item.skinClass.toLowerCase().replace(/\s+/g, "-")}">${item.name}</div>
               <div class="item-rarity">${item.rarity}</div>
               <div>${formatChance(item, selected.items)}%</div>
@@ -191,6 +193,7 @@ function animateSelectedCaseVisuals() {
   const box = document.getElementById("case-box");
   const list = document.querySelector(".case-item-list");
   if (box) {
+    box.classList.remove("opened");
     box.classList.add("animate", "active");
     setTimeout(() => {
       box.classList.remove("animate");
@@ -257,6 +260,16 @@ async function openCase() {
   const resultContainer = document.getElementById("result-container");
   if (resultContainer) {
     resultContainer.innerHTML = formatResult(openedItem);
+  }
+
+  const caseItemIcon = document.getElementById("case-item-icon");
+  if (caseItemIcon) {
+    caseItemIcon.textContent = openedItem.icon;
+  }
+
+  const box = document.getElementById("case-box");
+  if (box) {
+    box.classList.add("opened");
   }
 
   if (button) {

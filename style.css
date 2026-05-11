@@ -165,7 +165,7 @@ body {
 
 .case-box {
   width: 280px;
-  height: 140px;
+  height: 180px;
   position: relative;
   transform-style: preserve-3d;
   transform: rotateX(16deg) rotateY(-24deg);
@@ -174,6 +174,75 @@ body {
   overflow: hidden;
   box-shadow: 0 22px 90px rgba(6, 22, 36, 0.5);
   border: 1px solid rgba(255,255,255,.08);
+}
+
+.case-lid {
+  position: absolute;
+  inset: 0;
+  height: 64%;
+  transform-origin: top center;
+  transform: rotateX(0deg);
+  transition: transform 0.75s ease;
+  border-bottom: 1px solid rgba(255,255,255,0.12);
+  overflow: hidden;
+}
+
+.case-base {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 46%;
+  background: linear-gradient(180deg, rgba(15,24,44,0.95), rgba(8,13,24,0.98));
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 18px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.case-item-spot {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.case-item-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  background: rgba(255,255,255,0.08);
+  color: #fff;
+  font-size: 2.2rem;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.08);
+}
+
+.case-box.opened .case-lid {
+  transform: rotateX(-82deg);
+}
+
+.case-box.opened .case-item-spot {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.case-box.animate .case-lid {
+  animation: caseLidOpen 0.95s ease forwards;
+}
+
+@keyframes caseLidOpen {
+  0% {
+    transform: rotateX(0deg);
+  }
+  45% {
+    transform: rotateX(-42deg);
+  }
+  100% {
+    transform: rotateX(-82deg);
+  }
 }
 
 .case-box .case-face {
@@ -264,6 +333,23 @@ body {
   border: 1px solid rgba(255,255,255,0.1);
   border-radius: 20px;
   box-shadow: 0 30px 90px rgba(0, 0, 0, 0.22);
+}
+
+.result-icon {
+  font-size: 2.4rem;
+  margin-bottom: 14px;
+}
+
+.item-icon {
+  display: inline-flex;
+  width: 34px;
+  height: 34px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.08);
+  margin-right: 10px;
+  font-size: 1.1rem;
 }
 
 .item-list {
